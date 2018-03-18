@@ -30,10 +30,11 @@ class Base extends PIXI.Container {
         this.animationSpeed = 0.2
         this._animationSpeed = 0.2
         this.scale.set(2)
-        this.pivot.x = 14
-        this.pivot.y = 17
+        this.pivot.x = 17
+        this.pivot.y = 16
 
         this.addChild(this.anims['idle'])
+        this.getChildAt(0).play()
     }
 
     set animationSpeed(value) {
@@ -51,17 +52,9 @@ class Base extends PIXI.Container {
         if(this.anims[status] && this.getChildAt(0) != this.anims[status]){
             this.removeChildAt(0)
             this.addChild(this.anims[status])
-
-            this.pivot.x = 14
-            this.pivot.y = 17
             this.getChildAt(0).play()
         }
     }
-
-    play(){
-        this.getChildAt(0).play()
-    }
-
 
 }
 
