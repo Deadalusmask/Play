@@ -33,8 +33,6 @@ class Base extends PIXI.Container {
         this.pivot.x = 14
         this.pivot.y = 17
 
-        this.faceRight = true
-
         this.addChild(this.anims['idle'])
     }
 
@@ -50,7 +48,7 @@ class Base extends PIXI.Container {
     }
 
     setStatus(status){
-        if(this.anims[status]){
+        if(this.anims[status] && this.getChildAt(0) != this.anims[status]){
             this.removeChildAt(0)
             this.addChild(this.anims[status])
 
